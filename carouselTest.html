@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Sample Test</title>
+    <style>
+        .boxes{
+            width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .box{
+            height: 200px;
+        }
+        #box1{
+            background: darkcyan;
+        }
+        #box2{
+            background: dodgerblue;
+            display: none;
+        }
+        #box3{
+            background: darkorange;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class="box" id="box1"> </div>
+        <div class="box" id="box2"> </div>
+        <div class="box" id="box3"> </div>
+        <br>
+        <div class="controls">
+            <button id="prev"> &laquo; Prev</button>
+            &nbsp;
+            <button id="next"> Next &raquo;</button>
+        </div>
+    </div>
+    
+
+    <ul>
+        <li>Item One</li>
+        <li>Item Two</li>
+        <li>Item Three</li>
+        <li>Item Four</li>
+    </ul>
+
+    
+    <script>
+        let box=1
+
+        function next(){
+            document.querySelector(`#box${box}`).style.display ="none"
+            box++;
+            if(box >3) box=1
+            document.querySelector(`#box${box}`).style.display = "block"
+
+        }
+
+        function prev(){
+            document.querySelector(`$box${box}`).style.display="none"
+            box--;
+            if(box<1) box=3
+            document.querySelector(`$box${box}`).style.display = "block"
+        }
+
+        
+        document.querySelector("#next").onclick = next
+        document.querySelector("#prev").onclick =prev
+
+        setInterval(next, 3000);
+    </script>
+    <script>
+        let items=document.querySelectorAll("ul > li")
+        //for of loop
+        for(li of items){
+            console.log(li.textContent)
+        }
+
+        //forEach loop
+
+        items.forEach(li => li.textContent)
+
+        // using array and add  Item ul>li create and add text
+        //work on array so use map()
+        let fruits= ["Apple", "Orange","Mango","Banana", "Starawberry"]
+
+        let ul=document.querySelector("ul")
+
+        fruits.map(fruit => {
+            let li= document.createElement("li")
+            li.textContent = fruit
+            ul.appendChild(li)
+        })
+    </script>
+</body>
+</html>

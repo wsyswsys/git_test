@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convas</title>
+    <style>
+        html{
+           width: 100%;
+           height: inherit; 
+        }
+        body{
+            margin:0;
+        }
+        button{
+            position: absolute;
+            border-radius: 5px;
+            top :5px;
+            left : 5px;
+        }
+        canvas{
+            display:flex;
+        }
+    </style>
+</head>
+<body>
+    <button> Update </button>
+    <canvas></canvas>
+    <script>
+        const btn = document.querySelector('button')
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext('2d')
+
+        let WIDTH = document.documentElement.clientWidth;
+        let HEIGHT = document.documentElement.clientHeight;
+
+        canvas.width = WIDTH;
+        canvas.height= HEIGHT;
+
+        function random(number){
+            return Math.floor(Math.random()*number)
+        }
+
+        function draw(){
+            ctx.clearRect(0,0,WIDTH,HEIGHT)
+
+            for(let i=0; i<100; i++){
+                ctx.beginPath();
+                ctx.fillStyle = 'rgba(125,0,125,0.5)'
+                ctx.arc(random(WIDTH), random(HEIGHT),random(40),0, 3* Math.PI)
+                ctx.fill();
+            }
+        }
+        btn.addEventListener('click',draw)
+    </script>
+</body>
+</html>
