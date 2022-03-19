@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital City Lessons</title>
+</head>
+<body>
+    <h2>Capital City</h2>
+    <div class="cityOutput">
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        const cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+        const list=document.querySelector('.cityOutput ul');
+        list.innerHTML = '';
+        for(const city of cities){
+            let lowerCaseCity= city.toLowerCase();
+            let firstLetter = lowerCaseCity.slice(0,1);
+            let capitalizedFirstLetter = lowerCaseCity.replace(firstLetter, firstLetter.toUpperCase())
+            let result =capitalizedFirstLetter;
+            
+            const listItem = document.createElement('li');
+            listItem.textContent = result;
+            list.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
